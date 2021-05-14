@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signup / Registration form using Material Design - Demo by W3lessons</title>
+    <!-- CORE CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+        html {
+            display: table;
+            margin: auto;
+        }
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .margin {
+            margin: 0 !important;
+        }
+        .aLink{
+            cursor: pointer;
+        }
+        #ErrorMatching{
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            color: #4f0c0c;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body class="white">
+
+
+<div  style="-webkit-box-shadow: 5px 5px 34px 10px rgba(0,0,0,0.49);
+box-shadow: 5px 5px 34px 10px rgba(0,0,0,0.49);position:relative;top:0px;"  id="login-page" class="wrapper fadeInDown">
+    <div class="col s12 z-depth-6 card-panel">
+        <form class="login-form" method="post" th:action="@{/registerrsu}" th:object="${UserData}">
+           <!-- <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+            </div>-->
+            <!--<div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-social-person-outline prefix"></i>
+                    <input id="username" th:field="*{idcs}" type="text" name="username" class="validate">
+                    <label for="username" class="center-align">Idcs</label>
+                </div>
+            </div>-->
+
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    <input id="password" type="password"  name="password"  class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+          <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-action-lock-outline prefix"></i>
+                    <input id="confirm_password" type="password" onkeyup='check();' name="rpassword">
+                    <label for="confirm_password">Re-type password</label>
+                </div>
+            </div>
+            <div class="row margin">
+                <div class="input-field col s12" id="ErrorMatching">
+                    <span id='message'></span>
+                </div>
+            </div>
+            <div class="row margin">
+                <div>
+                    <input  type="hidden" th:value="${UserData.idcs}" name="idcs" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <button type="submit" style="background: #3FACE7;"  class="btn waves-effect waves-light col s12">Creer votre espace</button>
+                </div>
+                <!--<div class="input-field col s12">
+                    <p class="margin center medium-small sign-up">vous avez deja un espace ? <a class="aLink" href="/login">Login</a></p>
+                </div>-->
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!--
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    &lt;!&ndash; Post Page - Responsive &ndash;&gt;
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:300px;height:250px"
+         data-ad-client="ca-pub-5104998679826243"
+         data-ad-slot="3470684978"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+-->
+
+
+<!-- ================================================
+  Scripts
+  ================================================ -->
+
+<!-- jQuery Library -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--materialize js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+<script>
+    var check = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+/*
+            document.getElementById('ErrorMatching').style.backgroundColor='#289D6F';
+*/
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'not matching';
+        }
+    }
+
+</script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-27820211-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<script src="//load.sumome.com/" data-sumo-site-id="1cf2c3d548b156a57050bff06ee37284c67d0884b086bebd8e957ca1c34e99a1" async="async">
+
+</script>
+
+
+
+</body>
+
+</html>
